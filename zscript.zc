@@ -34,6 +34,8 @@ class SMPBEventHandler : EventHandler
 			if (!(inrange) && !(mo.player) && (mo.Tics != -1))
 			{
 				mo.Tics += (slowdownspeed - 1);
+				if (!(mo.bJustHit) && (smpb_distmoreaggro) && (mo.bIsMonster))
+					mo.bJustHit = true;
 			}
 		}
 	}

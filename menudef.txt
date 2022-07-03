@@ -26,4 +26,6 @@ OptionMenu "SMPBOptions"
 	StaticText " "
 	StaticText "$SMPBRangeInfo"
 	Slider "$SMPBRange", "smpb_range", 1500, 5000, 250
+	StaticText " "
+	Option "$SMPBDistAggro", "smpb_distmoreaggro", "YesNo"
 }

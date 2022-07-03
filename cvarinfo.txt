@@ -1,3 +1,4 @@
 server bool smpb_enable = true;
+server bool smpb_distmoreaggro = false;
 server float smpb_range = 3000;
 server int smpb_tics = 8;
