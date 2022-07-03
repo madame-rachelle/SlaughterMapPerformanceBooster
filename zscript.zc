@@ -2,6 +2,8 @@ Version "4.8.0"
 
 class SMPBEventHandler : EventHandler
 {
+	ThinkerIterator it;
+
 	override void WorldTick()
 	{
 		if (!smpb_enable)
@@ -13,7 +15,10 @@ class SMPBEventHandler : EventHandler
 		if ((gametic % slowdownspeed) != 0)
 			return;
 
-		ThinkerIterator it = ThinkerIterator.Create("Actor", Thinker.STAT_DEFAULT);
+		if (!it)
+			it = ThinkerIterator.Create("Actor", Thinker.STAT_DEFAULT);
+		else
+			it.Reinit();
 
 		actor mo;
 
