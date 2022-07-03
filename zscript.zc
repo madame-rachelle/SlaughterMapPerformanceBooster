@@ -1,0 +1,40 @@
+Version "4.8.0"
+
+class SMPBEventHandler : EventHandler
+{
+	override void WorldTick()
+	{
+		if (!smpb_enable)
+			return;
+
+		int slowdownspeed = smpb_tics;
+		float slowrange = smpb_range;
+
+		if ((gametic % slowdownspeed) != 0)
+			return;
+
+		ThinkerIterator it = ThinkerIterator.Create("Actor", Thinker.STAT_DEFAULT);
+
+		actor mo;
+
+		while (mo = Actor(it.Next()))
+		{
+			bool inrange = false;
+			for (int i = 0; i < MAXPLAYERS; i++)
+			{
+				if (players[i].mo && players[i].camera)
+				{
+					float dx = int(players[i].camera.Pos.X - mo.Pos.X);
+					float dy = int(players[i].camera.Pos.Y - mo.Pos.Y);
+					float qdist = dx * dx + dy * dy - slowrange * slowrange;
+					if (qdist < 0)
+						inrange = true;
+				}
+			}
+			if (!inrange && !(mo.player))
+			{
+				mo.Tics += (slowdownspeed - 1);
+			}
+		}
+	}
+}

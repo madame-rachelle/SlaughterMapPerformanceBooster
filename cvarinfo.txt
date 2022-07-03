@@ -1,0 +1,3 @@
+server bool smpb_enable = false;
+server float smpb_range = 3000;
+server int smpb_tics = 8;
