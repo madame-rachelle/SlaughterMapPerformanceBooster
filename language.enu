@@ -1,5 +1,7 @@
 [enu default]
 SMPBOptions = "Slaughter Map Performance Booster Options";
 SMPBEnabled = "Enable SMPB";
-SMPBTicRate = "SMPB Slowdown Rate (Tics) (longer - slower, more performance boost)";
-SMPBRange = "SMPB Range Check (lower = more strict, more performance boost)";
+SMPBTicRateInfo = "Longer - slower, more performance boost --->";
+SMPBTicRate = "SMPB Slowdown Rate (Tics)";
+SMPBRangeInfo = "<--- Lower = more strict, more performance boost";
+SMPBRange = "SMPB Range Check";

@@ -20,6 +20,10 @@ OptionMenu "SMPBOptions"
 {
 	Title "$SMPBOptions"
 	Option "$SMPBEnabled", "smpb_enable", "YesNo"
+	StaticText " "
+	StaticText "$SMPBTicRateInfo"
 	Slider "$SMPBTicRate", "smpb_tics", 3, 15, 1
+	StaticText " "
+	StaticText "$SMPBRangeInfo"
 	Slider "$SMPBRange", "smpb_range", 1500, 5000, 250
 }
