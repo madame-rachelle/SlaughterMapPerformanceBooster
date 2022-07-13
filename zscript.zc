@@ -45,3 +45,32 @@ class SMPBEventHandler : EventHandler
 		}
 	}
 }
+
+
+// party mode. let's actually test this thing!
+
+class AlertEverything : CustomInventory
+{
+
+	states
+	{
+	Pickup:
+		TNT1 A 0 {
+			ThinkerIterator it;
+			if (!it)
+				it = ThinkerIterator.Create("Actor", Thinker.STAT_DEFAULT);
+			else
+				it.Reinit();
+
+			actor mo;
+
+			while (mo = Actor(it.Next()))
+			{
+				mo.LastHeard = Self;
+				mo.bAmbush = false;
+			}
+			it.Destroy();
+			it = null;
+		}
+	}
+}
