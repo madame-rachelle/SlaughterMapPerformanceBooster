@@ -1,6 +1,6 @@
 Version "4.6.1"
 
-class SMPBEventHandler : EventHandler
+class SMPBEventHandler : StaticEventHandler
 {
 	ThinkerIterator it;
 
