@@ -24,6 +24,9 @@ class SMPBEventHandler : StaticEventHandler
 
 		while (mo = Actor(it.Next()))
 		{
+			if (mo.isFrozen())
+				break;
+
 			bool inrange = false;
 			for (int i = 0; i < MAXPLAYERS; i++)
 			{
