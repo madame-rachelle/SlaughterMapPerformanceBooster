@@ -37,6 +37,8 @@ class SMPBEventHandler : StaticEventHandler
 					float qdist = dx * dx + dy * dy - slowrange * slowrange;
 					if (qdist < 0)
 						inrange = true;
+					if (mo.Default.bMissile || Inventory(mo))
+						inrange = true; // don't slow down missiles or inventory
 				}
 			}
 			if (!(inrange) && !(mo.player) && (mo.Tics != -1))
@@ -70,7 +72,11 @@ class AlertEverything : CustomInventory
 			while (mo = Actor(it.Next()))
 			{
 				mo.LastHeard = Self;
+				mo.bJustHit = true;
+				mo.Target = Self;
 				mo.bAmbush = false;
+				mo.reactiontime = 0;
+				mo.threshold = 0;
 			}
 			it.Destroy();
 			it = null;
