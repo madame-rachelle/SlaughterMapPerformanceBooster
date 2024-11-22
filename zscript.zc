@@ -54,9 +54,7 @@ class SMPBEventHandler : StaticEventHandler
 			{
 				if (players[i].mo && players[i].camera)
 				{
-					float dx = int(players[i].camera.Pos.X - mo.Pos.X);
-					float dy = int(players[i].camera.Pos.Y - mo.Pos.Y);
-					float qdist = dx * dx + dy * dy - slowrange * slowrange;
+					float qdist = mo.VecTo(players[i].camera) - slowrange;
 					if (qdist < 0)
 						inrange = true;
 					if (mo.Default.bMissile || Inventory(mo))
